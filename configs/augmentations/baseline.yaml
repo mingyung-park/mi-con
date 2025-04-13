@@ -1,0 +1,9 @@
+normalize: true
+
+augmentation:
+  use: true
+  flip: true
+  rotation: 0.1
+  zoom: 0.2
+  translation: 0.2
+  contrast: 0.3

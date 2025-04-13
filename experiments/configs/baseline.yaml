@@ -1,0 +1,7 @@
+experiment_name: efficientnet_exp1
+
+config_paths:
+  model: models/baseline.yaml
+  compile: compilers/baseline.yaml
+  training: trainers/baseline.yaml
+  augmentation: augmentations/baseline.yaml

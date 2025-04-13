@@ -1,7 +1,0 @@
-experiment_name: efficientnet_exp1
-
-config_paths:
-  model: configs/model/efficientnet.yaml
-  compile: configs/compile/adamw_cosine.yaml
-  training: configs/training/default.yaml
-  augmentation: configs/augmentation/strong.yaml

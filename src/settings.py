@@ -18,4 +18,8 @@ EXPERIMENT_PATH = BASE_PATH / 'experiments'
 EXPERIMENT_LOG_PATH = EXPERIMENT_PATH / 'logs'
 
 # 제출 폴더더 경로
+
 SUBMISSION_PATH = EXPERIMENT_PATH /'submissions'
+
+# 라벨 인코더 경로
+LABEL_ENCODER_PATH = BASE_PATH / 'label_encoder'

@@ -1,0 +1,21 @@
+
+training:
+  epochs: 30
+
+  callbacks:
+    model_checkpoint:
+      use: true
+      filepath: "checkpoints/best.h5"
+      monitor: val_loss
+      save_best_only: true
+      save_weights_only: false
+
+    early_stopping:
+      use: true
+      monitor: val_loss
+      patience: 5
+      restore_best_weights: true
+
+    tensorboard:
+      use: true
+      log_dir: "./logs"

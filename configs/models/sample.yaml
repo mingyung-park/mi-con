@@ -1,0 +1,30 @@
+model:
+  name: efficientnet          # 모델 이름 (필수)
+  trainable: true             # backbone 학습 여부 (선택, 기본값 True)
+  final_activation: softmax  # 출력층 활성화 함수 (선택, 기본 softmax)
+
+  # 정규화 설정 (모두 선택적)
+  regularizer:
+    kernel:
+      type: l2
+      l2: 1e-4
+    bias:
+      type: l1
+      l1: 1e-5
+    activity:
+      type: l1_l2
+      l1: 1e-6
+      l2: 1e-4
+
+  # MLP Head 설정 (각 레이어 개별 설정, 모두 선택적)
+  hidden_layers:
+    - units: 128
+      dropout: 0.3
+      initializer: he_normal
+      activation: relu
+      use_bias: true
+      batch_norm: true
+
+    - units: 64
+      dropout: 0.2
+      activation: gelu

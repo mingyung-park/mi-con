@@ -1,4 +1,5 @@
 import tensorflow as tf
+from sklearn.preprocessing import LabelEncoder
 
 def parse_image(image, label=None, normalize=True):
     """

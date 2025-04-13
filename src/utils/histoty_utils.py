@@ -2,12 +2,15 @@ import matplotlib.pyplot as plt
 import json
 import os
 
-def save_history(history, cfg=None, save_path="history.json"):
+from settings import *
+
+
+def save_history(history, file_name="history.json", cfg=None, save_dir="."):
     """
-    Keras history + best scores + 사용한 config를 저장
+    실험 폴더에 학습 history, best scores, config를 저장
     """
     hist = history.history
-    os.makedirs(os.path.dirname(save_path), exist_ok=True)
+    os.makedirs(save_dir, exist_ok=True)
 
     # Best metric 계산
     best_scores = {}
@@ -18,22 +21,24 @@ def save_history(history, cfg=None, save_path="history.json"):
     if "val_top_k_categorical_accuracy" in hist:
         best_scores["best_val_top_k_accuracy"] = max(hist["val_top_k_categorical_accuracy"])
 
-    # 저장 dict 구성
+    # 저장할 딕셔너리 구성
     save_dict = {
         "history": hist,
-        "best_scores": best_scores
+        "best_scores": best_scores,
     }
 
-    # config 저장
+    # config가 있다면 함께 저장
     if cfg is not None:
-        save_dict["config"] = cfg  # dict 형태로 바로 저장 가능
+        save_dict["config"] = cfg
 
-    # 저장
+    # 파일로 저장
+    save_path = os.path.join(save_dir, file_name)
     with open(save_path, "w") as f:
         json.dump(save_dict, f, indent=2)
 
     print(f"✅ History + Best Scores + Config saved to {save_path}")
 
+    
 def plot_history(history, metrics=("loss", "accuracy")):
     """
     Keras history 객체를 받아 metric 별 학습 그래프를 그립니다.

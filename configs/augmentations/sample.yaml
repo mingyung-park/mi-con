@@ -1,0 +1,6 @@
+use: true
+flip: true
+rotation: 0.15
+zoom: 0.1
+contrast: 0.2
+brightness: 0.2

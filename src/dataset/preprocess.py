@@ -12,10 +12,3 @@ def parse_image(image, label=None, normalize=True):
     if label is not None:
         return image, label
     return image
-
-
-def encode_labels(labels, label_encoder=None):
-    if label_encoder is None:
-        label_encoder = LabelEncoder()
-    encoded_labels = label_encoder.fit_transform(labels)
-    return encoded_labels, label_encoder

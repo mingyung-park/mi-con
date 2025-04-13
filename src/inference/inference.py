@@ -4,7 +4,7 @@ import pandas as pd
 import tensorflow as tf
 from settings import *
 
-def run_inference(model, test_ds, save_dir, file_name="submission"):
+def run_inference(model, test_ds, save_dir, file_name="submission.csv"):
     """
     모델로 추론 후 sample_submission 형식에 맞춰 저장
     - model: 학습된 keras model
@@ -23,7 +23,7 @@ def run_inference(model, test_ds, save_dir, file_name="submission"):
 
     # 저장 경로 생성
     os.makedirs(save_dir, exist_ok=True)
-    save_path = os.path.join(save_dir, f"{file_name}.csv")
+    save_path = os.path.join(save_dir, f"{file_name}")
     submission.to_csv(save_path, index=False)
 
     print(f"✅ submission.csv 저장 완료! → {save_path}")

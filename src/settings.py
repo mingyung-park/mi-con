@@ -6,10 +6,9 @@ BASE_PATH = Path("../mi-con")
 DATA_PATH = BASE_PATH / 'data'
 TRAIN_CSV = DATA_PATH / 'train.csv'
 TEST_CSV = DATA_PATH / 'test.csv'
-SUB_CSV = DATA_PATH / 'sample_submission.csv'
 
-# config 경로
-CONFIG = BASE_PATH / 'configs'
+# config결호
+CONFIG = BASE_PATH / 'config'
 
 # 모델 경로
 MODEL_PATH = BASE_PATH / 'models'
@@ -18,6 +17,5 @@ MODEL_PATH = BASE_PATH / 'models'
 EXPERIMENT_PATH = BASE_PATH / 'experiments'
 EXPERIMENT_LOG_PATH = EXPERIMENT_PATH / 'logs'
 
-# 제출 폴더 경로
+# 제출 폴더더 경로
 SUBMISSION_PATH = EXPERIMENT_PATH /'submissions'
-

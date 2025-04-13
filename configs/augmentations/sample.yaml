@@ -1,6 +1,11 @@
-use: true
-flip: true
-rotation: 0.15
-zoom: 0.1
-contrast: 0.2
-brightness: 0.2
+normalize: true
+
+augmentation:
+  use: true
+  flip: true
+  rotation: 0.1
+  zoom: 0.1
+  translation: 0.1
+  contrast: 0.2
+  gaussian_noise: 0.05
+  posterize: 4

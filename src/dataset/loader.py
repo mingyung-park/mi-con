@@ -36,5 +36,12 @@ def load_csv(csv_path):
         images = image_data.reshape(-1, 32, 32, 1).astype(np.uint8)
     except Exception as e:
         raise ValueError(f"이미지 reshape 중 오류 발생: {e}")
+    
+    # 3채널로 확장(복제)
+    try:
+        images = np.repeat(images, 3, axis=-1)
+    except Exception as e:
+        raise ValueError(f"3채널 복제 중 오류 발생: {e}")
+    
 
     return images, labels, image_ids

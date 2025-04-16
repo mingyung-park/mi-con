@@ -8,14 +8,14 @@ TRAIN_CSV = DATA_PATH / 'train.csv'
 TEST_CSV = DATA_PATH / 'test.csv'
 
 # config결호
-CONFIG = BASE_PATH / 'config'
+CONFIG = BASE_PATH / 'configs'
 
 # 모델 경로
 MODEL_PATH = BASE_PATH / 'models'
 
 # 실험 경로, 로그
 EXPERIMENT_PATH = BASE_PATH / 'experiments'
-EXPERIMENT_LOG_PATH = EXPERIMENT_PATH / 'logs'
+EXPERIMENT_CONFIG_PATH = EXPERIMENT_PATH / 'configs'
 
 # 제출 폴더더 경로
 

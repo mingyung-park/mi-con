@@ -5,13 +5,11 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 
 from settings import *
-from models.factory import get_model
-from train.compile import compile_model
-from train.trainer import train_model
-from inference.predict import run_inference
-from utils.history_utils import save_history
-from data.loader import load_dataset, get_dataset
-from utils.visualization import plot_history
+from models import *
+from trainer import *
+from inference import *
+from utils import *
+from dataset import *
 
 
 def load_yaml(path):
@@ -23,15 +21,15 @@ def get_latest_experiment_id(base_dir=EXPERIMENT_PATH, prefix="EXP"):
     nums = [int(d.replace(f"{prefix}_", "")) for d in existing if d.replace(f"{prefix}_", "").isdigit()]
     return max(nums) + 1 if nums else 1
 
-def run_experiment():
+def run_experiment(experiment_config_file):
     # ✅ config 통합
-    experiment_cfg = load_yaml("configs/experiment.yaml")
+    experiment_cfg = load_yaml(os.path.join(EXPERIMENT_CONFIG_PATH ,experiment_config_file))
 
     # ✅ config.yaml 파일을 읽어옵니다.    
-    aug_cfg = load_yaml(experiment_cfg["augmentation_config"])
-    model_cfg = load_yaml(experiment_cfg["model_config"])
-    training_cfg = load_yaml(experiment_cfg["training_config"])
-    compile_cfg = load_yaml(experiment_cfg["compile_config"])
+    aug_cfg = load_yaml(os.path.join(CONFIG,experiment_cfg["augmentation"]))
+    model_cfg = load_yaml(os.path.join(CONFIG,experiment_cfg["model"]))
+    training_cfg = load_yaml(os.path.join(CONFIG,experiment_cfg["training"]))
+    compile_cfg = load_yaml(os.path.join(CONFIG,experiment_cfg["compile"]))
     
     cfg = {
         "model": model_cfg,
